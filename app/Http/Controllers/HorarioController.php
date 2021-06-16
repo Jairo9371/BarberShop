@@ -15,7 +15,7 @@ class HorarioController extends Controller
     public function index()
     {
         //
-        $horarios['horarios']=horario::paginate(20);
+        $horarios['horarios']=horario::paginate(5);
         return view('horarios.index', $horarios);
 
     }

@@ -15,7 +15,7 @@ class BarberoController extends Controller
     public function index()
     {
         //
-        $barberos['barberos']=barbero::paginate(50);
+        $barberos['barberos']=barbero::paginate(2);
         return view('barberos.index', $barberos);
     }
 

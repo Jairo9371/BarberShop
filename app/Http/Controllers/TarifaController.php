@@ -15,7 +15,7 @@ class TarifaController extends Controller
     public function index()
     {
         //
-        $tarifas['tarifas']=tarifa::paginate(20);
+        $tarifas['tarifas']=tarifa::paginate(5);
         return view('tarifas.index', $tarifas);
     }
 

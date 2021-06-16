@@ -69,6 +69,9 @@
     </tbody>
   </table>
 
+<!--show Paginate in the view-->
+{{$tarifas->links()}}
+
   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearTarifa">
   Crear Nueva Tarifa

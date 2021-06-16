@@ -84,6 +84,7 @@ input[type=number]{
   </tbody>
 </table>
 
+<!--show Paginate in the view-->
     {{$clientes->links()}}
 
 <!-- Button trigger modal -->

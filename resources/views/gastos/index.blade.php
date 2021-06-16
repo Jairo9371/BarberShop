@@ -76,6 +76,10 @@ input[type=number]{
 </table>
 <br>
 <br>
+
+<!--show Paginate in the view-->
+{{$gastos->links()}}
+
 <a href="{{ url('/ganancias')}}" class="btn btn-danger btn-sm">Atras</a>
 
 

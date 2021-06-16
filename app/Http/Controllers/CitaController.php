@@ -25,7 +25,7 @@ class CitaController extends Controller
         ->join('barberos','citas.id_barbero','=', 'barberos.id') 
         ->join('horarios','citas.id_horario','=','horarios.id')
         ->orderBy('id','desc')
-        ->paginate(50, array('citas.id','citas.fecha','clientes.nombre as nombre_cliente','hora','barberos.nombre as nombre_barbero','citas.total'));
+        ->paginate(5, array('citas.id','citas.fecha','clientes.nombre as nombre_cliente','hora','barberos.nombre as nombre_barbero','citas.total'));
         
      
         
