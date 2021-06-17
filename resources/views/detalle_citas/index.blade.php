@@ -27,12 +27,12 @@
    @foreach($detallecitas as $dec)
     <tr>
         <th scope="row">{{$loop->iteration}}</th>
-      <td>{{$dec->nombre}}</td>
+      <td>{{$dec->cliente}}</td>
       <td>{{$dec->tipo}}</td>
       <td>{{$dec->precio}}</td>
       <td>{{$dec->subtotal}}</td>
       <td>
-       <form method="POST" action="{{url('/detallecitas/'.$dec->id)}}">
+         <form method="POST" action="{{url('/detallecitas/'.$dec->id)}}">
      {{ csrf_field() }}
  {{ method_field('DELETE') }} 
       <button type="submit" onclick="return confirm('Desea Eliminar la Tarifa Seleccionada');"
@@ -41,6 +41,9 @@
       </td>
     </tr>
       @endforeach
+  </table>
   
+<!--show Paginate in the view-->
+    {{$detallecitas->links()}}
   </body>
 </html>

@@ -33,7 +33,7 @@ header nav ul li {
 
 header nav ul li a {
 	color:#fff;
-	padding:20px;
+	padding:30px;
 	display:block;
 	text-decoration:none;
 }
@@ -100,9 +100,10 @@ body{
 }
 
 .responsive {
-  width: 100%;
+  width: 85%;
   height: auto;
   margin-top: 5rem;
+  padding: 30px;
 }
 
 .footer{

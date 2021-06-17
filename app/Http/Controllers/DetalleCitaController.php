@@ -20,7 +20,8 @@ class DetalleCitaController extends Controller
         $detallecitas['detallecitas']=detalle_cita::join('citas','detalle_citas.id_cita','=','citas.id')
         ->join('clientes','citas.id_cliente','=', 'clientes.id')
         ->join('tarifas','detalle_citas.id_tarifa','=','tarifas.id')
-        ->paginate(50);
+        ->paginate(5, array('detalle_citas.id','clientes.nombre as cliente','tarifas.tipo','tarifas.precio','detalle_citas.subtotal'));
+        
         return view('detalle_citas.index', $detallecitas);
         
     }
@@ -50,10 +51,10 @@ class DetalleCitaController extends Controller
     {
         //
 
-        echo ("STORE DETALLE CITAS");
-        echo var_dump($request->data);
+        /*echo ("STORE DETALLE CITAS");
+        echo var_dump($request->data);*/
 
-/*
+
         $datosDetalleCita=request()->except('_token');
         detalle_cita::insert($datosDetalleCita);    
         //1. Ir a traer el valor del total de venta
@@ -69,8 +70,18 @@ class DetalleCitaController extends Controller
         $update_venta->save();  
         //return response()->json($nuevoTotal);
 
+        
+        $nuevacantidad = $datosDetalleCita['subtotal'] - $cita['total'];
+        //  echo $nuevoTotal;
+        //3. Guardar el nuevo total en la base de datos
+        $update_venta = cita::find($datosDetalleCita['id_cita']);
+        $update_venta->total = $nuevacantidad;
+        $update_venta->timestamps = false;
+        $update_venta->save();  
+
+
         return redirect('citas/' . $datosDetalleCita['id_cita'] . '/edit');
-        */
+        
     }
 
     /**
@@ -117,8 +128,12 @@ class DetalleCitaController extends Controller
     public function destroy($detalle_cita)
     {
         //
+      
         detalle_cita::destroy($detalle_cita);
-        return redirect('detallecitas');
+       
+
+        //return redirect('detallecitas');
+        return redirect('citas/'.$detalle_cita['id'].'/edit');
         
      
     }

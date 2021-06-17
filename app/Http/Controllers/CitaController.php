@@ -17,11 +17,18 @@ class CitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
 
-        $citas['citas']=cita::join('clientes','citas.id_cliente','=', 'clientes.id')
+        $fecha = $request->get('fecha');
+        $cliente = $request->get('id_cliente');
+
+
+        $citas['citas']=cita::where('fecha','LIKE',"%$fecha%")
+        ->where('id_cliente','LIKE',"%$cliente%")
+        
+        ->join('clientes','citas.id_cliente','=', 'clientes.id')
         ->join('barberos','citas.id_barbero','=', 'barberos.id') 
         ->join('horarios','citas.id_horario','=','horarios.id')
         ->orderBy('id','desc')
@@ -104,7 +111,7 @@ class CitaController extends Controller
         ->join('clientes','citas.id_cliente', 'clientes.id')
         ->join('tarifas','detalle_citas.id_tarifa', 'tarifas.id')
         ->orderBy('detalle_citas.id', 'asc')
-        ->select('clientes.nombre','tarifas.tipo','tarifas.precio','detalle_citas.subtotal')
+        ->select('detalle_citas.id','clientes.nombre','tarifas.tipo','tarifas.precio','detalle_citas.subtotal')
         ->where('id_cita', $cita)
         ->paginate(50);
 

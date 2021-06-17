@@ -12,10 +12,13 @@ class TarifaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $tarifas['tarifas']=tarifa::paginate(5);
+        $tipo = $request->get('tipo');
+
+        $tarifas['tarifas']=tarifa::where('tipo','LIKE',"%$tipo%")
+            ->paginate(5);
         return view('tarifas.index', $tarifas);
     }
 

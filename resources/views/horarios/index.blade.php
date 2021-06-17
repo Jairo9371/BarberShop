@@ -32,7 +32,7 @@
 				<li><a href="/barber_shop/public/horarios"><span class="icon-clock"></span>Horarios</a></li>
 				<li><a href="/barber_shop/public/tarifas"><span class="icon-file-text"></span>Tarifas</a></li>
 				<li><a href="/barber_shop/public/citas"><span class="icon-profile"></span>Citas</a></li>
-				<li><a href="/barber_shop/public/ganancias"><span class="icon-enter"></span>Ganancias</a></li>
+				<li><a href="/barber_shop/public/ganancias"><span class="icon-coin-dollar"></span>Ganancias</a></li>
 
 			</ul>
 		</nav>

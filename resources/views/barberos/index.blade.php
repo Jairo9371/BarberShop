@@ -31,12 +31,24 @@
 				<li><a href="/barber_shop/public/horarios"><span class="icon-clock"></span>Horarios</a></li>
 				<li><a href="/barber_shop/public/tarifas"><span class="icon-file-text"></span>Tarifas</a></li>
 				<li><a href="/barber_shop/public/citas"><span class="icon-profile"></span>Citas</a></li>
-				<li><a href="/barber_shop/public/ganancias"><span class="icon-enter"></span>Ganancias</a></li>
+				<li><a href="/barber_shop/public/ganancias"><span class="icon-coin-dollar"></span>Ganancias</a></li>
 
 			</ul>
 		</nav>
 	</header>
 
+<!--Creation the Search -->
+<div class = "row">
+  <div class = "col -md-5">
+
+    <form action = "{{url('/barberos')}}" method="GET" class = "d-flex">
+      <input class="form-control" type="search" placeholder="Buscar por nombre" 
+      name="nombre" arial-label="search">
+    
+      <button class = "btn btn-outline-success" type = "submit" >Buscar</button>
+    </form>    
+  </div>
+</div>
 
 <table class="table">
   <thead class="thead-dark">

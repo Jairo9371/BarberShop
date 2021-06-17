@@ -15,7 +15,7 @@ class GastoController extends Controller
     public function index()
     {
         //
-        $gastos['gastos']=gasto::paginate(50);
+        $gastos['gastos']=gasto::paginate(5);
         return view('gastos.index', $gastos);
 
     }

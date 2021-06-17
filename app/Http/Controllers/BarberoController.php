@@ -12,10 +12,13 @@ class BarberoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $barberos['barberos']=barbero::paginate(2);
+        $nombre = $request->get('nombre');
+
+        $barberos['barberos']=barbero::where('nombre','LIKE',"%$nombre%")
+        ->paginate(2);
         return view('barberos.index', $barberos);
     }
 
