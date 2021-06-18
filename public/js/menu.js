@@ -1,7 +1,7 @@
 $(document).ready(main);
 
 var contador = 1;
-
+/*Cuando se le de click al icono del Menú aparezca y desaparezca */
 function main(){
 	$('.menu_bar').click(function(){
 		// $('nav').toggle(); 

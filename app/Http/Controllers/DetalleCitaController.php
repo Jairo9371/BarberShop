@@ -64,20 +64,13 @@ class DetalleCitaController extends Controller
         $nuevoTotal = $datosDetalleCita['subtotal'] + $cita['total'];
         //  echo $nuevoTotal;
         //3. Guardar el nuevo total en la base de datos
-        $update_venta = cita::find($datosDetalleCita['id_cita']);
-        $update_venta->total = $nuevoTotal;
-        $update_venta->timestamps = false;
-        $update_venta->save();  
+        $update_cita = cita::find($datosDetalleCita['id_cita']);
+        $update_cita->total = $nuevoTotal;
+        $update_cita->timestamps = false;
+        $update_cita->save();  
         //return response()->json($nuevoTotal);
 
-        
-        $nuevacantidad = $datosDetalleCita['subtotal'] - $cita['total'];
-        //  echo $nuevoTotal;
-        //3. Guardar el nuevo total en la base de datos
-        $update_venta = cita::find($datosDetalleCita['id_cita']);
-        $update_venta->total = $nuevacantidad;
-        $update_venta->timestamps = false;
-        $update_venta->save();  
+       
 
 
         return redirect('citas/' . $datosDetalleCita['id_cita'] . '/edit');
@@ -125,15 +118,23 @@ class DetalleCitaController extends Controller
      * @param  \App\Models\detalle_cita  $detalle_cita
      * @return \Illuminate\Http\Response
      */
-    public function destroy($detalle_cita)
+    public function destroy(Request $request, $detalle_cita)
     {
         //
-      
-        detalle_cita::destroy($detalle_cita);
-       
 
-        //return redirect('detallecitas');
-        return redirect('citas/'.$detalle_cita['id'].'/edit');
+        $datosrequest = request()->all();
+        detalle_cita::destroy($detalle_cita);
+        //echo var_dump($detalle_cita);
+        return redirect('citas/'. $datosrequest['id_cita'] .'/edit' );
+
+         
+        $nuevacantidad = $detalle_cita['subtotal'] - $datosrequest['total'];
+        //  echo $nuevoTotal;
+        //3. Guardar el nuevo total en la base de datos
+        $update_cita = cita::find($detalle_cita['id_cita']);
+        $update_cita->total = $nuevacantidad;
+        $update_cita->timestamps = false;
+        $update_cita->save();  
         
      
     }

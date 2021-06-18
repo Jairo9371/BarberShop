@@ -18,6 +18,8 @@
     <title>Listado de Ganancias</title>
   </head>
   <body>
+<!--Creation the Menu-->
+
 <header>
 		<div class="menu_bar">
 			<a href="#" class="bt-menu"><span class="icon-menu"></span>Menú</a>

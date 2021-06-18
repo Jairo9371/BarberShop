@@ -17,40 +17,49 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Inicio
+
+Route::resource('/inicio', 'App\Http\Controllers\InicioController')->middleware('auth');
+
+
 //Barberos
-Route::resource('/barberos', 'App\Http\Controllers\BarberoController');
+Route::resource('/barberos', 'App\Http\Controllers\BarberoController')->middleware('auth');
 
 //Citas
-Route::resource('/citas', 'App\Http\Controllers\CitaController');
+Route::resource('/citas', 'App\Http\Controllers\CitaController')->middleware('auth');
 
 //Clientes
 
-Route::resource('/clientes', 'App\Http\Controllers\ClienteController');
+Route::resource('/clientes', 'App\Http\Controllers\ClienteController')->middleware('auth');
 
 //Detalle Citas
 
-Route::resource('/detallecitas', 'App\Http\Controllers\DetalleCitaController');
+Route::resource('/detallecitas', 'App\Http\Controllers\DetalleCitaController')->middleware('auth');
 
 
 //Horarios
-Route::resource('/horarios', 'App\Http\Controllers\HorarioController');
+Route::resource('/horarios', 'App\Http\Controllers\HorarioController')->middleware('auth');
 
 
 
 //Tarifas
-Route::resource('/tarifas', 'App\Http\Controllers\TarifaController');
+Route::resource('/tarifas', 'App\Http\Controllers\TarifaController')->middleware('auth');
 
 //Gastos
-Route::resource('/gastos', 'App\Http\Controllers\GastoController');
+Route::resource('/gastos', 'App\Http\Controllers\GastoController')->middleware('auth');
 
 //Pagos
-Route::resource('/pagos', 'App\Http\Controllers\PagoController');
+Route::resource('/pagos', 'App\Http\Controllers\PagoController')->middleware('auth');
 
 //Ganancias
-Route::resource('/ganancias', 'App\Http\Controllers\GananciaController');
+Route::resource('/ganancias', 'App\Http\Controllers\GananciaController')->middleware('auth');
 
 
 
 
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

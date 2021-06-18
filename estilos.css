@@ -100,10 +100,10 @@ body{
 }
 
 .responsive {
-  width: 85%;
+  width: 50%;
   height: auto;
-  margin-top: 5rem;
-  padding: 30px;
+  display:block;
+  margin:auto;
 }
 
 .footer{

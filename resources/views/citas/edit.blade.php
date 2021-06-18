@@ -37,8 +37,8 @@
 				<li><a href="/barber_shop/public/horarios"><span class="icon-clock"></span>Horarios</a></li>
 				<li><a href="/barber_shop/public/tarifas"><span class="icon-file-text"></span>Tarifas</a></li>
 				<li><a href="/barber_shop/public/citas"><span class="icon-profile"></span>Citas</a></li>
-				<li><a href="/barber_shop/public/ingresos"><span class="icon-enter"></span>Ingresos</a></li>
-				<li><a href="/barber_shop/public/egresos"><span class="icon-exit"></span>Egresos</a></li>
+				<li><a href="/barber_shop/public/ganancias"><span class="icon-coin-dollar"></span>Ganancias</a></li>
+
 			</ul>
 		</nav>
 	</header>
@@ -161,6 +161,8 @@
        <form method="POST" action="{{url('/detallecitas/'.$dec->id)}}">
      {{ csrf_field() }}
  {{ method_field('DELETE') }} 
+ <input class="form-control" type="hidden" name="id_cita" value="{{$datos_cita->id}}">
+
       <button type="submit" onclick="return confirm('Desea Eliminar la Tarifa Seleccionada');"
       class="btn btn-danger btn-sm">Eliminar</botton>
       </form>

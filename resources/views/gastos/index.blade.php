@@ -27,6 +27,7 @@ input[type=number]{
     <title>Listado de Gastos</title>
   </head>
   <body>
+<!--Creation the Menu-->
 
   <header>
 		<div class="menu_bar">

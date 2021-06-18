@@ -18,6 +18,8 @@
     <title>Listado de Barberos</title>
   </head>
   <body>
+<!--Creation the Menu-->
+
 <header>
 		<div class="menu_bar">
 			<a href="#" class="bt-menu"><span class="icon-menu"></span>Menú</a>
@@ -32,9 +34,16 @@
 				<li><a href="/barber_shop/public/tarifas"><span class="icon-file-text"></span>Tarifas</a></li>
 				<li><a href="/barber_shop/public/citas"><span class="icon-profile"></span>Citas</a></li>
 				<li><a href="/barber_shop/public/ganancias"><span class="icon-coin-dollar"></span>Ganancias</a></li>
+        
+        <form id="Logout" method="POST" action="{{url('logout')}}">
+            {{csrf_field()}}
+            <a href="javascript:{}" class="btn btn-primary btn-sm" 
+             onclick="document.getElementById('Logout').submit();">Logout</a>
+            </form>
 
 			</ul>
 		</nav>
+    
 	</header>
 
 <!--Creation the Search -->
@@ -129,6 +138,9 @@ input[type=number]{
   </div>
 </div>
     </footer>
+
+
+       
 
   </body>
 

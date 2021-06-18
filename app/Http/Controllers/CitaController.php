@@ -21,14 +21,11 @@ class CitaController extends Controller
     {
         //
 
-        $fecha = $request->get('fecha');
-        $cliente = $request->get('id_cliente');
 
 
-        $citas['citas']=cita::where('fecha','LIKE',"%$fecha%")
-        ->where('id_cliente','LIKE',"%$cliente%")
+        $citas['citas']=cita::
         
-        ->join('clientes','citas.id_cliente','=', 'clientes.id')
+        join('clientes','citas.id_cliente','=', 'clientes.id')
         ->join('barberos','citas.id_barbero','=', 'barberos.id') 
         ->join('horarios','citas.id_horario','=','horarios.id')
         ->orderBy('id','desc')

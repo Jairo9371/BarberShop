@@ -1,15 +1,21 @@
+/* Borra los Margenes que agrega el Navegador por Defecto*/
 * {
 	margin:0;
 	padding:0;
 }
+/*Para darle estilo al Body*/
 
 body {
-	background:#FFFFFA;
+	background:#A9CCE3;
 }
+
+/*El Menu abarca el 100% de la pantalla*/
 
 header {
 	width:100%;
 }
+
+/* Centra el Menu y Cambia el Color*/
 
 header nav {
 	width:90%;
@@ -17,19 +23,22 @@ header nav {
 	margin:20px auto;
 	background:#024959;
 }
+/* Oculta La Barra del Menu*/
 
 .menu_bar {
 	display:none;
 }
+/* Separa la Barra del Texto y le quita los puntos*/
 
 header nav ul {
 	overflow:hidden;
 	list-style:none;
 }
-
+/* Mueve los elementos del Menu al lado Izquierdo*/
 header nav ul li {
 	float:left;
 }
+/* Modifica el Texto de la Barra del Menu*/
 
 header nav ul li a {
 	color:#fff;
@@ -37,19 +46,20 @@ header nav ul li a {
 	display:block;
 	text-decoration:none;
 }
-
+/*Espaciado de los iconos con el Texto*/
 header nav ul li span {
 	margin-right:10px;
 }
-
+/*Efecto de sombra a la hora de pasar el Mouse en el Menú*/
 header nav ul li a:hover {
 	background:#037E8C;
 }
 
+/*Tamaño del Margen en el Navegador*/
 section {
 	padding:20px;
 }
-
+/* Medida para Ajustar el tamaño de la pantalla y mostrar el Menú */
 @media screen and (max-width:800px ) {
 	header nav {
 		width:80%;
@@ -58,19 +68,19 @@ section {
 		margin:0;
 		position: fixed;
 	}
-
+/*Ajusta el Menu de manera vertical cuando cambia el tamaño de pantalla*/
 	header nav ul li {
 		display:block;
 		float:none;
 		border-bottom:1px solid rgba(255,255,255, .3);
 	}
-
+/*Muestra la Barra del Menú cuando esta en vertical*/
 	.menu_bar {
 		display:block;
 		width:100%;
 		background:#ccc;
 	}
-
+/*Diseño de la Barra del Menú*/
 	.menu_bar .bt-menu {
 		display:block;
 		padding:20px;
@@ -83,20 +93,11 @@ section {
 		-moz-box-sizing:border-box;
 		box-sizing:border-box;
 	}
-
+/*Separa el icono del texto del Menu*/
 	.menu_bar span {
 		float:right;
 		font-size:40px;
 	}
-}
-
-body{
-    margin: 0;
-    padding: 0;
-    background: #A9CCE3;   
-    background-size: cover;
-    background-position: center;
-    font-family: sans-serif;
 }
 
 .responsive {

@@ -18,6 +18,8 @@
   </head>
   <body>
 
+<!--Creation the Menu-->
+
 <header>
 		<div class="menu_bar">
 			<a href="#" class="bt-menu"><span class="icon-menu"></span>Menú</a>
@@ -37,6 +39,19 @@
 		</nav>
 	</header>
 
+<!--Creation the Search -->
+<div class = "row">
+  <div class = "col -md-5">
+
+    <form action = "{{url('/citas')}}" method="GET" class = "d-flex">
+      <input class="form-control" type="search" placeholder="Buscar por cliente" 
+      name="nombre" arial-label="search">
+      <input class="form-control" type="search" placeholder="Buscar por fecha" 
+      name="fecha" arial-label="search"> 
+      <button class = "btn btn-outline-success" type = "submit" >Buscar</button>
+    </form>    
+  </div>
+</div>
 
      <table class="table">
   <thead class="thead-dark">

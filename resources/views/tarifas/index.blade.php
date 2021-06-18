@@ -18,6 +18,7 @@
     <title>Listado de Tarifas</title>
   </head>
   <body>
+<!--Creation the Menu-->
 
 <header>
 		<div class="menu_bar">
