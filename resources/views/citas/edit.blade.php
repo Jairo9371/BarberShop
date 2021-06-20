@@ -179,7 +179,7 @@
 
 <script>
 
-var dict = []; // create an empty array
+var diccionario = []; // create an empty array
 function totalIt() {
   var javaScriptVar = <?php echo json_encode($tarifas); ?>;
   var input = document.getElementsByName("id_tarifa");
@@ -208,14 +208,6 @@ function totalIt() {
 }
 
 function enviar_datos(){
-  console.log(diccionario);
-  console.log(diccionario);
-  console.log(diccionario);
-  console.log(diccionario);
-  console.log(diccionario);
-  console.log(diccionario);
-  console.log(diccionario);
-  console.log(diccionario);
 
   console.log("ENVIANDO DATOS");
 

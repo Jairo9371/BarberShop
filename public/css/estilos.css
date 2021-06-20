@@ -41,10 +41,11 @@ header nav ul li {
 /* Modifica el Texto de la Barra del Menu*/
 
 header nav ul li a {
-	color:#fff;
-	padding:20px;
+	color:rgb(255, 255, 255);
+	padding:18px;
 	display:block;
 	text-decoration:none;
+	font: 120% sans-serif;
 }
 /*Espaciado de los iconos con el Texto*/
 header nav ul li span {
@@ -68,6 +69,7 @@ section {
 		margin:0;
 		position: fixed;
 	}
+
 /*Ajusta el Menu de manera vertical cuando cambia el tamaño de pantalla*/
 	header nav ul li {
 		display:block;
@@ -98,12 +100,14 @@ section {
 		float:right;
 		font-size:40px;
 	}
+	
 }
 
 .responsive {
-  width: 100%;
-  height: auto;
-  margin-top: 5rem;
+	width: 50%;
+	height: auto;
+	display:block;
+	margin:auto;
 }
 
 .footer{

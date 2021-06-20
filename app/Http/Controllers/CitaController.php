@@ -67,6 +67,7 @@ class CitaController extends Controller
     {
         //
         $datosCita=request()->except('_token');
+        //$datosCita=request()->all();
         //$nombre= $request ->d;
 
         cita::insert($datosCita);  
