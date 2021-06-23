@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\tarifa;
 use Illuminate\Http\Request;
+use Session;
+
 
 class TarifaController extends Controller
 {
@@ -15,11 +17,15 @@ class TarifaController extends Controller
     public function index(Request $request)
     {
         //
+
+        $mensaje = Session :: get('mensaje');
+
+
         $tipo = $request->get('tipo');
 
         $tarifas['tarifas']=tarifa::where('tipo','LIKE',"%$tipo%")
             ->paginate(5);
-        return view('tarifas.index', $tarifas);
+        return view('tarifas.index', $tarifas)->with('mensaje',$mensaje);
     }
 
     /**
@@ -103,7 +109,14 @@ class TarifaController extends Controller
     {
         //
 
-         tarifa::destroy($tarifa);
-        return redirect('tarifas');
+        try{
+            tarifa::destroy($tarifa);
+            return redirect('tarifas');
+           } catch(\Exception $exception){
+            $mensaje = 'No se pudo Eliminar';
+
+            return redirect('tarifas')->with('mensaje',$mensaje);
+        }
+        
     }
 }

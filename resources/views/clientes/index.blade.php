@@ -80,7 +80,7 @@ input[type=number]{
   <tbody>
   @foreach($clientes as $clic)<!--nombre de la variable mas un alias-->
     <tr>
-      <th scope="row">{{$clic->id}}</th>
+      <th scope="row">{{$loop->iteration}}</th>
       <td>{{$clic->nombre}}</td>
       <td>{{$clic->direccion}}</td>
       <td>{{$clic->telefono}}</td>
@@ -103,6 +103,12 @@ input[type=number]{
 
 <!--show Paginate in the view-->
     {{$clientes->links()}}
+
+@isset($mensaje)
+      <script type="text/javascript">
+      alert("No se puede Eliminar este Registro")
+      </script>
+@endisset
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearCliente">

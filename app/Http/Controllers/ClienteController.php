@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\cliente;
 use App\Models\horario;
 use Illuminate\Http\Request;
+use Session;
 
 class ClienteController extends Controller
 {
@@ -16,14 +17,15 @@ class ClienteController extends Controller
     public function index(Request $request)
     {
         //
-
+        $mensaje = Session :: get('mensaje');
+       // echo($mensaje);
         $nombre = $request->get('nombre');
 
         $clientes['clientes']=cliente::where('nombre','LIKE',"%$nombre%")
-        ->orderBy('id','asc')
+        ->orderBy('id','desc')
         ->paginate(5);
 
-        return view('clientes.index', $clientes);
+        return view('clientes.index', $clientes)->with('mensaje', $mensaje);
     }
 
     /**
@@ -109,7 +111,14 @@ class ClienteController extends Controller
     public function destroy($cliente)
     {
         //
-        Cliente::destroy($cliente);
-        return redirect('clientes');
+        try{
+            Cliente::destroy($cliente);
+            return redirect('clientes');
+           } catch(\Exception $exception){
+            $mensaje = 'No se pudo Eliminar';
+
+            return redirect('clientes')->with('mensaje',$mensaje);
+        }
+        
     }
 }

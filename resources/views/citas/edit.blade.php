@@ -11,7 +11,6 @@
       <!-- Bootstrap JS -->
     <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
-      <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="{{asset('js/menu.js')}}"></script>
@@ -38,7 +37,13 @@
 				<li><a href="/barber_shop/public/tarifas"><span class="icon-file-text"></span>Tarifas</a></li>
 				<li><a href="/barber_shop/public/citas"><span class="icon-profile"></span>Citas</a></li>
 				<li><a href="/barber_shop/public/ganancias"><span class="icon-coin-dollar"></span>Ganancias</a></li>
-
+        <li>
+          <form id="Logout" method="POST" action="{{url('logout')}}">
+            {{csrf_field()}}
+            <a href="javascript:{}" 
+             onclick="document.getElementById('Logout').submit();">Cerrar Sesión</a>
+            </form>
+        </li>
 			</ul>
 		</nav>
 	</header>
@@ -195,7 +200,7 @@ function totalIt() {
         id_cita:id_tarifa[i].value,
         id_tarifa:id_tarifa[i].value,
         subtotal:parseInt(javaScriptVar.data[i].precio),
-      });
+      })
       
     }
   }
@@ -207,13 +212,12 @@ function totalIt() {
   document.getElementsByName("subtotal")[0].value = subtotal;
 }
 
-function enviar_datos(){
-
+  function enviar_datos(){
   console.log("ENVIANDO DATOS");
 
   $.ajax({
     type:'POST',
-    url:'{{url('/detallecitas/')}}',
+    url:'{{url('/citas/')}}',
     data:{
       dic:diccionario 
     },

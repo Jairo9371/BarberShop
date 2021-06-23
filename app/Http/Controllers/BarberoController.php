@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\barbero;
 use Illuminate\Http\Request;
+use Session;
+
 
 class BarberoController extends Controller
 {
@@ -15,11 +17,15 @@ class BarberoController extends Controller
     public function index(Request $request)
     {
         //
+
+        $mensaje = Session :: get('mensaje');
+
         $nombre = $request->get('nombre');
 
         $barberos['barberos']=barbero::where('nombre','LIKE',"%$nombre%")
+        ->orderBy('id','desc')
         ->paginate(2);
-        return view('barberos.index', $barberos);
+        return view('barberos.index', $barberos)->with('mensaje',$mensaje);
     }
 
     /**
@@ -103,7 +109,15 @@ class BarberoController extends Controller
     public function destroy($barbero)
     {
         //
-        barbero::destroy($barbero);
-        return redirect('barberos');
+       
+        try{
+            barbero::destroy($barbero);
+            return redirect('barberos');
+           } catch(\Exception $exception){
+            $mensaje = 'No se pudo Eliminar';
+       // echo "CITAS";
+       // cita::destroy($cita);
+             return redirect('barberos')->with('mensaje',$mensaje);
+        }
     }
 }

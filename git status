@@ -1,0 +1,29 @@
+[33mcommit 520d20cd31d447f43db30e263879d7831bf8326a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Jairo <jairogregorio10@gmail.com>
+Date:   Sat Jun 19 19:47:31 2021 -0600
+
+    Modified Menu
+
+[33mcommit 2c3aaad6077b12346d34764f46b52b42d9f2561b[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Jairo <jairogregorio10@gmail.com>
+Date:   Thu Jun 17 20:20:35 2021 -0600
+
+    Creation Login
+
+[33mcommit e166ba0bfa7304ea04aa63c7a5edf234406fa45a[m
+Author: Jairo <jairogregorio10@gmail.com>
+Date:   Wed Jun 16 20:51:11 2021 -0600
+
+    Creation Search in the views
+
+[33mcommit 7d8f9e2ea824c3f6dc416ae71f0d8564891432b2[m
+Author: Jairo <jairogregorio10@gmail.com>
+Date:   Wed Jun 16 08:40:17 2021 -0600
+
+    Añadi Paginate en las Vistas
+
+[33mcommit 620a993a7d8bac4035170938caef7181bfc9284e[m
+Author: Jairo <jairogregorio10@gmail.com>
+Date:   Tue Jun 15 20:15:28 2021 -0600
+
+    Primer Commit

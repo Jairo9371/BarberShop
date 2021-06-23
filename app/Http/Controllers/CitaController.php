@@ -9,6 +9,8 @@ use App\Models\barbero;
 use App\Models\detalle_cita;
 use App\Models\tarifa;
 use Illuminate\Http\Request;
+use Session;
+
 
 class CitaController extends Controller
 {
@@ -17,10 +19,11 @@ class CitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
 
+        $mensaje = Session :: get('mensaje');
 
 
         $citas['citas']=cita::
@@ -38,7 +41,7 @@ class CitaController extends Controller
         $barberos['barberos']=barbero::paginate(50);
     
 
-        return view('citas.index')->with($citas)->with($clientes)->with($horarios)->with($barberos);
+        return view('citas.index')->with($citas)->with($clientes)->with($horarios)->with($barberos)->with('mensaje',$mensaje);
     }
 
     /**
@@ -141,8 +144,19 @@ class CitaController extends Controller
      */
     public function destroy($cita)
     {
-        echo "CITAS";
-        cita::destroy($cita);
-        return redirect('citas');
+
+        try{
+            cita::destroy($cita);
+            return redirect('citas');
+           } catch(\Exception $exception){
+            $mensaje = 'No se pudo Eliminar';
+       // echo "CITAS";
+       // cita::destroy($cita);
+             return redirect('citas')->with('mensaje',$mensaje);
+        }
     }
 }
+
+
+
+

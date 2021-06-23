@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\horario;
 use Illuminate\Http\Request;
+use Session;
+
 
 class HorarioController extends Controller
 {
@@ -15,8 +17,10 @@ class HorarioController extends Controller
     public function index()
     {
         //
+        $mensaje = Session :: get('mensaje');
+
         $horarios['horarios']=horario::paginate(5);
-        return view('horarios.index', $horarios);
+        return view('horarios.index', $horarios)->with('mensaje',$mensaje);
 
     }
 
@@ -91,8 +95,14 @@ class HorarioController extends Controller
     public function destroy($horario)
     {
         //
-        horario::destroy($horario);
-        return redirect('horarios');
+        try{
+            horario::destroy($horario);
+            return redirect('horarios');
+           } catch(\Exception $exception){
+            $mensaje = 'No se pudo Eliminar';
 
+            return redirect('horarios')->with('mensaje',$mensaje);
+        }
+        
     }
 }

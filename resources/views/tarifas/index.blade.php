@@ -121,6 +121,10 @@
 </div>
     </footer>
 
-
+@isset($mensaje)
+      <script type="text/javascript">
+      alert("No se puede Eliminar este Registro")
+      </script>
+@endisset
   </body>
 </html>

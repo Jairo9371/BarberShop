@@ -70,7 +70,7 @@
   <tbody>
   @foreach($barberos as $bar)<!--nombre de la variable mas un alias-->
     <tr>
-      <th scope="row">{{$bar->id}}</th>
+      <th scope="row">{{$loop->iteration}}</th>
       <td>{{$bar->nombre}}</td>
       <td>{{$bar->telefono}}</td>
       <td>
@@ -138,7 +138,11 @@ input[type=number]{
 </div>
     </footer>
 
-
+  @isset($mensaje)
+          <script type="text/javascript">
+          alert("No se puede Eliminar este Registro")
+      </script>
+      @endisset
        
 
   </body>
